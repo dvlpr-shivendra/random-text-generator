@@ -47,6 +47,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 var lorem = new lorem_ipsum__WEBPACK_IMPORTED_MODULE_0__.LoremIpsum({
   sentencesPerParagraph: {
@@ -71,6 +73,10 @@ var lorem = new lorem_ipsum__WEBPACK_IMPORTED_MODULE_0__.LoremIpsum({
   methods: {
     generate: function generate() {
       this.text = lorem.generateParagraphs(this.numberOfParagraphs);
+    },
+    copy: function copy() {
+      this.$refs.text.select();
+      document.execCommand("copy");
     }
   }
 });
@@ -1087,6 +1093,12 @@ var render = function() {
           "button",
           { staticClass: "btn btn-primary", on: { click: _vm.generate } },
           [_vm._v("Generate")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-danger", on: { click: _vm.copy } },
+          [_vm._v("Copy")]
         )
       ])
     ]),
@@ -1101,6 +1113,7 @@ var render = function() {
             expression: "text"
           }
         ],
+        ref: "text",
         staticClass: "form-control",
         attrs: { cols: "30", rows: "25" },
         domProps: { value: _vm.text },

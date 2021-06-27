@@ -18,6 +18,7 @@
       </div>
       <div class="col-auto">
         <button class="btn btn-primary" @click="generate">Generate</button>
+        <button class="btn btn-danger" @click="copy">Copy</button>
       </div>
     </div>
 
@@ -27,6 +28,7 @@
         v-model="text"
         cols="30"
         rows="25"
+        ref="text"
       ></textarea>
     </div>
   </div>
@@ -61,6 +63,11 @@ export default {
   methods: {
     generate() {
       this.text = lorem.generateParagraphs(this.numberOfParagraphs);
+    },
+
+    copy() {
+      this.$refs.text.select();
+      document.execCommand("copy");
     },
   },
 };
