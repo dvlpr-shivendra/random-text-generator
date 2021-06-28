@@ -4,7 +4,7 @@
 
     <div class="row g-3 align-items-center mb-3">
       <div class="col-auto">
-        <label for="numberOfParagraphs" class="col-form-label"
+        <label for="numberOfParagraphs" class="col-form-label text-dark"
           >Number of paragraphs</label
         >
       </div>
@@ -13,22 +13,26 @@
           type="number"
           min="1"
           v-model.number="numberOfParagraphs"
-          class="form-control"
+          class="form-control text-dark"
+          id="numberOfParagraphs"
         />
       </div>
       <div class="col-auto">
-        <button class="btn btn-primary" @click="generate">Generate</button>
-        <button class="btn btn-danger" @click="copy">Copy</button>
+        <button class="btn btn-outline-dark" @click="generate">
+          Generate
+        </button>
+        <button class="btn btn-outline-danger" @click="copy">Copy</button>
       </div>
     </div>
 
     <div>
       <textarea
-        class="form-control"
+        class="form-control text-dark"
         v-model="text"
         cols="30"
         rows="25"
         ref="text"
+        title="Generated text"
       ></textarea>
     </div>
   </div>
